@@ -56,15 +56,25 @@ document.getElementById("save-btn").addEventListener("click", function () {
     const saveInput = parseFloat(document.getElementById("save").value);
     // getting income amount 
     const income = getIncome();
-    // calculate and show the saving amount 
+    // calculate the saving amount 
     const saveAmount = (income * saveInput) / 100;
-    document.getElementById("saving-amount").innerText = saveAmount;
 
     // calculate new balance after deducting saving amount 
     const totalExpense = getTotalExpense();
     const previousBalance = getBalance(income, totalExpense);
     const newBalance = previousBalance - saveAmount;
 
-    // showing the new balance 
-    document.getElementById("remaining-balance").innerText = newBalance;
+    if (newBalance < 0) {
+        alert("You cannot save more tham Current Balance");
+    }
+
+    else if (isNaN(saveInput) || isNaN(saveAmount) || isNaN(newBalance)) {
+        alert("Enter Valid Saving Amount");
+    }
+    else {
+        // showing the new balance and saving amount
+
+        document.getElementById("saving-amount").innerText = saveAmount;
+        document.getElementById("remaining-balance").innerText = newBalance;
+    }
 })
