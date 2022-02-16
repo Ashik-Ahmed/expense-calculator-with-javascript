@@ -31,12 +31,14 @@ document.getElementById("calculate-btn").addEventListener("click", function () {
     // getting the balance 
     const balance = getBalance(income, totalExpense);
 
+    // input validation
     if (isNaN(totalExpense) || isNaN(balance)) {
 
         alert("Enter Valid Amount");
 
     }
     else {
+        // expense cannot be more than income 
         if (income < totalExpense) {
             alert("Your income is Low")
         }
