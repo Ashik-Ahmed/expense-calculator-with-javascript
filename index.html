@@ -9,7 +9,7 @@
     <!-- Fontawesome -->
     <script src="https://kit.fontawesome.com/a5f55e7ad1.js" crossorigin="anonymous"></script>
 
-    <title>Monthly Enpense Calculator</title>
+    <title>Monthly Expense Calculator</title>
 
     <!-- External CSS  -->
     <link rel="stylesheet" href="css/style.css">
@@ -27,48 +27,51 @@
     </header>
 
     <main>
-        <section class="container d-flex justify-content-around">
+        <section class="container d-md-flex g-3">
 
-            <div class="col-md-8 col-sm-12">
-                <img class="w-75 h-75" src="images/image-1.jpg" alt="">
+            <div class="col-12 col-md-8 me-4">
+                <img src="./images/image-1.jpg" class="w-100 w-md-75" alt="">
             </div>
 
-            <!-- Income Form  -->
-            <div class="col-md-4 h-100 col-sm-6 bg-secondary p-5">
-                <h3 class="text-center">Income</h3>
+
+            <div class="col-12 col-md-4 bg-light p-5">
+
+                <!-- Income input field  -->
+                <h3 class="text-center bg-success p-2 mb-3">Income</h3>
                 <div class="row g-3 align-items-center">
-                    <div class="col-auto">
+                    <div class="col-4">
                         <label for="income" class="col-form-label">Income</label>
                     </div>
-                    <div class="col-auto">
-                        <input id="income" type="text" class="form-control">
+                    <div class="col-8">
+                        <input id="income" type="number" class="form-control">
                     </div>
                 </div>
 
 
-                <!-- Expense Form  -->
-                <h3 class="text-center mt-3">Expenses</h3>
-                <div class="row g-3 align-items-center justify-content-end">
-                    <div class="col-auto">
+                <!-- Expenses input fields  -->
+                <h3 class="text-center bg-warning p-2 mt-5 mb-3">Expenses</h3>
+                <div class="row g-3 align-items-md-center justify-content-md-end">
+                    <div class="col-4">
                         <label for="food" class="col-form-label">Food</label>
                     </div>
-                    <div class="col-auto">
-                        <input id="food" type="text" class="form-control">
+                    <div class="col-8">
+                        <input id="food" type="number" class="form-control">
                     </div>
-                    <div class="col-auto">
+                    <div class="col-4">
                         <label for="rent" class="col-form-label">Rent</label>
                     </div>
-                    <div class="col-auto">
-                        <input id="rent" type="text" class="form-control">
+                    <div class="col-8">
+                        <input id="rent" type="number" class="form-control">
                     </div>
-                    <div class="col-auto">
+                    <div class="col-4">
                         <label for="clothes" class="col-form-label">Clothes</label>
                     </div>
-                    <div class="col-auto">
-                        <input id="clothes" type="text" class="form-control">
+                    <div class="col-8">
+                        <input id="clothes" type="number" class="form-control">
                     </div>
 
                 </div>
+
 
                 <!-- Calculate Button  -->
                 <div class="row g-3 align-items-center justify-content-center">
@@ -77,7 +80,8 @@
                     </div>
                 </div>
 
-                <!-- Expense  -->
+
+                <!-- Total Expense and Balance result field  -->
                 <div class="row g-3 align-items-center justify-content-center mt-2">
                     <div class="col-auto">
                         <label for="total-expenses" class="col-form-label">Total Expenses: </label>
@@ -86,7 +90,6 @@
                         <label id="total-expense" for="total-expenses" class="col-form-label">0</label>
                     </div>
                 </div>
-                <!-- Balance  -->
                 <div class="row g-3 align-items-center justify-content-center">
                     <div class="col-auto">
                         <label for="balance" class="col-form-label">Balance: </label>
@@ -96,23 +99,25 @@
                     </div>
                 </div>
 
-                <!-- Savings Entry  -->
+                <!-- Savings input field  -->
                 <div class="row g-3 align-items-center justify-content-center mt-2">
                     <div class="col-3">
                         <label for="balance" class="">Save: </label>
                     </div>
                     <div class="col-3">
-                        <input id="save" type="text" class="form-control">
+                        <input id="save" type="number" class="form-control">
                     </div>
                     <div class="col-3">
                         <label for="percent" class="">%</label>
                     </div>
+                    <!-- saving calculation button  -->
                     <div class="col-3">
                         <button id="save-btn" type="button" class="btn btn-info px-4">Save</button>
                     </div>
                 </div>
 
-                <!-- Saving Amount  -->
+
+                <!-- Saving amount and remaining balance showing area  -->
                 <div class="row g-3 align-items-center justify-content-center mt-1">
                     <div class="col-auto">
                         <label for="total-expenses" class="col-form-label">Saving Amount: </label>
@@ -121,7 +126,7 @@
                         <label id="saving-amount" for="total-expenses" class="col-form-label">0</label>
                     </div>
                 </div>
-                <!-- Remaining Balance  -->
+
                 <div class="row g-3 align-items-center justify-content-center">
                     <div class="col-auto">
                         <label for="balance" class="col-form-label">Remaining Balance: </label>
@@ -130,10 +135,10 @@
                         <label id="remaining-balance" for="balance" class="col-form-label">0</label>
                     </div>
                 </div>
-
             </div>
-
         </section>
+
+
     </main>
 
 
