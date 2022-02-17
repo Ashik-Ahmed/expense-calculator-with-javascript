@@ -1,7 +1,7 @@
 function getIncome() {
     const income = parseFloat(document.getElementById("income").value);
     if (income < 0 || isNaN(income)) {
-        alert("Negative Income value is not acceptable");
+        alert("Income Value should be only Positive Number");
     }
     else {
         return income;
@@ -17,8 +17,8 @@ function getTotalExpense() {
     const clothesCost = parseFloat(document.getElementById("clothes").value);
 
     // validating the expenses input value 
-    if (foodCost < 0 || rentCost < 0 || clothesCost < 0) {
-        alert("Negative Expense Value is not acceptable");
+    if (foodCost < 0 || rentCost < 0 || clothesCost < 0 || isNaN(foodCost) || isNaN(rentCost) || isNaN(clothesCost)) {
+        alert("Expense Value should be only Positive Number");
     }
     else {
 
@@ -84,16 +84,15 @@ document.getElementById("save-btn").addEventListener("click", function () {
         const previousBalance = getBalance(income, totalExpense);
         const newBalance = previousBalance - saveAmount;
 
-        if (newBalance < 0) {
+        if (isNaN(saveInput) || isNaN(saveAmount) || isNaN(newBalance)) {
+            alert("Enter Valid Saving Amount");
+        }
+        else if ((previousBalance == 0 && saveInput > 0) || newBalance < 0) {
             alert("Balance is Low");
         }
 
-        else if (isNaN(saveInput) || isNaN(saveAmount) || isNaN(newBalance)) {
-            alert("Enter Valid Saving Amount");
-        }
         else {
             // showing the new balance and saving amount
-
             document.getElementById("saving-amount").innerText = saveAmount;
             document.getElementById("remaining-balance").innerText = newBalance;
         }
