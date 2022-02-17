@@ -1,5 +1,11 @@
 function getIncome() {
-    return parseFloat(document.getElementById("income").value);
+    const income = parseFloat(document.getElementById("income").value);
+    if (income < 0 || isNaN(income)) {
+        alert("Negative Income value is not acceptable");
+    }
+    else {
+        return income;
+    }
 }
 
 
@@ -10,10 +16,17 @@ function getTotalExpense() {
     const rentCost = parseFloat(document.getElementById("rent").value);
     const clothesCost = parseFloat(document.getElementById("clothes").value);
 
-    // calculating total cost 
-    const totalCost = foodCost + rentCost + clothesCost;
+    // validating the expenses input value 
+    if (foodCost < 0 || rentCost < 0 || clothesCost < 0) {
+        alert("Negative Expense Value is not acceptable");
+    }
+    else {
 
-    return totalCost;
+        // calculating total cost 
+        const totalCost = foodCost + rentCost + clothesCost;
+
+        return totalCost;
+    }
 }
 
 
@@ -34,7 +47,7 @@ document.getElementById("calculate-btn").addEventListener("click", function () {
     // input validation
     if (isNaN(totalExpense) || isNaN(balance)) {
 
-        alert("Enter Valid Amount");
+        // alert("Enter Valid Amount");
 
     }
     else {
@@ -56,25 +69,33 @@ document.getElementById("save-btn").addEventListener("click", function () {
     const saveInput = parseFloat(document.getElementById("save").value);
     // getting income amount 
     const income = getIncome();
-    // calculate the saving amount 
-    const saveAmount = (income * saveInput) / 100;
 
-    // calculate new balance after deducting saving amount 
-    const totalExpense = getTotalExpense();
-    const previousBalance = getBalance(income, totalExpense);
-    const newBalance = previousBalance - saveAmount;
+    if (saveInput < 0) {
+        alert("Negative Savings value is not acceptable");
 
-    if (newBalance < 0) {
-        alert("You cannot save more tham Current Balance");
     }
 
-    else if (isNaN(saveInput) || isNaN(saveAmount) || isNaN(newBalance)) {
-        alert("Enter Valid Saving Amount");
-    }
     else {
-        // showing the new balance and saving amount
+        // calculate the saving amount 
+        const saveAmount = (income * saveInput) / 100;
 
-        document.getElementById("saving-amount").innerText = saveAmount;
-        document.getElementById("remaining-balance").innerText = newBalance;
+        // calculate new balance after deducting saving amount 
+        const totalExpense = getTotalExpense();
+        const previousBalance = getBalance(income, totalExpense);
+        const newBalance = previousBalance - saveAmount;
+
+        if (newBalance < 0) {
+            alert("Balance is Low");
+        }
+
+        else if (isNaN(saveInput) || isNaN(saveAmount) || isNaN(newBalance)) {
+            alert("Enter Valid Saving Amount");
+        }
+        else {
+            // showing the new balance and saving amount
+
+            document.getElementById("saving-amount").innerText = saveAmount;
+            document.getElementById("remaining-balance").innerText = newBalance;
+        }
     }
 })
